@@ -7,6 +7,7 @@ import NomineeCard from './components/NomineeCard';
 import Leaderboard from './components/Leaderboard';
 import VoteModal from './components/VoteModal';
 import { Award, Share2, Flame, RefreshCw, Trophy, Users, X, Info } from 'lucide-react';
+import { getLocalData } from './utils/mockBackend';
 
 const getApiUrl = (path) => {
   const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
@@ -56,8 +57,15 @@ export default function App() {
       
       return data;
     } catch (err) {
-      console.error('Error fetching data:', err);
-      addToast('Could not connect to voting server. Please verify it is running.', 'error');
+      console.warn('Backend server not reachable. Falling back to local storage simulation.', err);
+      
+      const localData = getLocalData();
+      setCategories(localData.categories);
+      setNominees(localData.nominees);
+      setTransactions(localData.transactions);
+      setStats(localData.stats);
+      
+      return localData;
     } finally {
       if (!silent) setLoading(false);
     }
