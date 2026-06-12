@@ -1,0 +1,234 @@
+{
+  "categories": [
+    {
+      "id": "musicians",
+      "name": "Musicians",
+      "description": "Best vocalists, rappers, and bands shaping the Kenyan sound."
+    },
+    {
+      "id": "djs",
+      "name": "DJs & Deck Masters",
+      "description": "Top deck masters keeping the country entertained."
+    },
+    {
+      "id": "producers",
+      "name": "Producers",
+      "description": "Creative minds behind the hit beats and tracks."
+    },
+    {
+      "id": "rising-stars",
+      "name": "Rising Stars / Creators",
+      "description": "New breakout talents and digital content creators."
+    }
+  ],
+  "nominees": [
+    {
+      "id": "sauti-sol",
+      "name": "Sauti Sol",
+      "categoryId": "musicians",
+      "bio": "Grammy-certified Afro-pop band known for their rich harmonies and global influence.",
+      "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 1430,
+      "amountTipped": 71500
+    },
+    {
+      "id": "khaligraph",
+      "name": "Khaligraph Jones",
+      "categoryId": "musicians",
+      "bio": "The OG. Leading hip-hop powerhouse known for fast flows and lyrical mastery.",
+      "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 1105,
+      "amountTipped": 55250
+    },
+    {
+      "id": "nyashinski",
+      "name": "Nyashinski",
+      "categoryId": "musicians",
+      "bio": "Multi-talented singer-songwriter whose comeback redefined Kenyan music.",
+      "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 980,
+      "amountTipped": 49000
+    },
+    {
+      "id": "nadia-mukami",
+      "name": "Nadia Mukami",
+      "categoryId": "musicians",
+      "bio": "African Pop Star award winner, known for her powerful vocals and hits.",
+      "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 850,
+      "amountTipped": 42500
+    },
+    {
+      "id": "dj-joe-mfalme",
+      "name": "DJ Joe Mfalme",
+      "categoryId": "djs",
+      "bio": "One of Kenya's most sought-after DJs, with a career spanning over a decade.",
+      "image": "https://images.unsplash.com/photo-1571266028243-e4733b0f0bb1?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 1270,
+      "amountTipped": 63500
+    },
+    {
+      "id": "dj-sadic",
+      "name": "DJ Sadic",
+      "categoryId": "djs",
+      "bio": "The 'Genius DJ' known for energetic gospel and crossover sets.",
+      "image": "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 810,
+      "amountTipped": 40500
+    },
+    {
+      "id": "dj-pierra-makena",
+      "name": "DJ Pierra Makena",
+      "categoryId": "djs",
+      "bio": "Pioneering female DJ, actress, and event organizer championing Kenyan music.",
+      "image": "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 920,
+      "amountTipped": 46000
+    },
+    {
+      "id": "dj-fingerprint",
+      "name": "DJ Fingerprint",
+      "categoryId": "djs",
+      "bio": "Renowned deck master and turntablist, celebrated for his high-octane club sets and creative live mashups.",
+      "image": "https://images.unsplash.com/photo-1516873240891-4bf014598ab4?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 645,
+      "amountTipped": 32250
+    },
+    {
+      "id": "motif-di-don",
+      "name": "Motif Di Don",
+      "categoryId": "producers",
+      "bio": "Master beatmaker and executive producer behind major hip-hop and gengetone hits.",
+      "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 750,
+      "amountTipped": 37500
+    },
+    {
+      "id": "cedo",
+      "name": "Cedric Kadenyi (Cedo)",
+      "categoryId": "producers",
+      "bio": "Award-winning sound designer and composer, key architect of the Sauti Sol sound.",
+      "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 680,
+      "amountTipped": 34000
+    },
+    {
+      "id": "magix-enga",
+      "name": "Magix Enga",
+      "categoryId": "producers",
+      "bio": "Self-proclaimed 'Beat King', known for high-octane rhythms and gengetone anthems.",
+      "image": "https://images.unsplash.com/photo-1487180142328-0c4e37023af5?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 540,
+      "amountTipped": 27000
+    },
+    {
+      "id": "crazy-kennar",
+      "name": "Crazy Kennar",
+      "categoryId": "rising-stars",
+      "bio": "Renowned comedy content creator bringing humor and storytelling to millions.",
+      "image": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 1650,
+      "amountTipped": 82500
+    },
+    {
+      "id": "azziad",
+      "name": "Azziad Nasenya",
+      "categoryId": "rising-stars",
+      "bio": "The TikTok sensation whose dance videos went viral worldwide, now a top media host.",
+      "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 1580,
+      "amountTipped": 79000
+    },
+    {
+      "id": "elsa-majimbo",
+      "name": "Elsa Majimbo",
+      "categoryId": "rising-stars",
+      "bio": "Sarcastic comedy creator who achieved massive global recognition during lockdowns.",
+      "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
+      "voteCount": 1120,
+      "amountTipped": 56000
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx-1781256606316-lne4f0e8o",
+      "nomineeId": "sauti-sol",
+      "nomineeName": "Sauti Sol",
+      "voterName": "johnte",
+      "phoneNumber": "******3959",
+      "amount": 250,
+      "votes": 5,
+      "timestamp": "2026-06-12T09:30:06.317Z"
+    },
+    {
+      "id": "tx-1781255470969-biutjgeze",
+      "nomineeId": "dj-fingerprint",
+      "nomineeName": "DJ Fingerprint",
+      "voterName": "johnte",
+      "phoneNumber": "******3959",
+      "amount": 250,
+      "votes": 5,
+      "timestamp": "2026-06-12T09:11:10.969Z"
+    },
+    {
+      "id": "tx-1781254834856-05lonpefq",
+      "nomineeId": "dj-joe-mfalme",
+      "nomineeName": "DJ Joe Mfalme",
+      "voterName": "bravin",
+      "phoneNumber": "******3959",
+      "amount": 1000,
+      "votes": 20,
+      "timestamp": "2026-06-12T09:00:34.856Z"
+    },
+    {
+      "id": "tx-1781254442120-z6ttcgi09",
+      "nomineeId": "dj-joe-mfalme",
+      "nomineeName": "DJ Joe Mfalme",
+      "voterName": "Jane Doe",
+      "phoneNumber": "******5678",
+      "amount": 500,
+      "votes": 10,
+      "timestamp": "2026-06-12T08:54:02.120Z"
+    },
+    {
+      "id": "tx-1781253938612-7njq4qcce",
+      "nomineeId": "sauti-sol",
+      "nomineeName": "Sauti Sol",
+      "voterName": "Antigravity Test",
+      "phoneNumber": "******5678",
+      "amount": 250,
+      "votes": 5,
+      "timestamp": "2026-06-12T08:45:38.612Z"
+    },
+    {
+      "id": "tx-1",
+      "nomineeId": "sauti-sol",
+      "nomineeName": "Sauti Sol",
+      "voterName": "Mwangi",
+      "phoneNumber": "0712345678",
+      "amount": 250,
+      "votes": 5,
+      "timestamp": "2026-06-12T11:00:00.000Z"
+    },
+    {
+      "id": "tx-2",
+      "nomineeId": "dj-joe-mfalme",
+      "nomineeName": "DJ Joe Mfalme",
+      "voterName": "Achieng",
+      "phoneNumber": "0722334455",
+      "amount": 500,
+      "votes": 10,
+      "timestamp": "2026-06-12T11:05:00.000Z"
+    },
+    {
+      "id": "tx-3",
+      "nomineeId": "crazy-kennar",
+      "nomineeName": "Crazy Kennar",
+      "voterName": "Wanjiku",
+      "phoneNumber": "0700112233",
+      "amount": 1000,
+      "votes": 20,
+      "timestamp": "2026-06-12T11:10:00.000Z"
+    }
+  ]
+}
