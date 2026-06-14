@@ -8,6 +8,7 @@ import Leaderboard from './components/Leaderboard';
 import VoteModal from './components/VoteModal';
 import { Award, Share2, Flame, RefreshCw, Trophy, Users, X, Info } from 'lucide-react';
 import { getLocalData } from './utils/mockBackend';
+import logoImg from './assets/logo.jpg';
 
 const getApiUrl = (path) => {
   const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
@@ -280,7 +281,7 @@ export default function App() {
         <div className="footer-wrapper">
           <div className="footer-brand">
             <div className="logo">
-              <Award className="logo-icon" size={24} />
+              <img src={logoImg} alt="Umoja Talanta Logo" className="logo-img footer-logo-img" />
               <span className="logo-text">KWA MA BEAST BATTLE</span>
             </div>
             <p className="footer-desc">

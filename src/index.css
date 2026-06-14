@@ -190,6 +190,18 @@ a {
   filter: drop-shadow(var(--gold-glow));
 }
 
+.logo-img {
+  height: 36px;
+  width: auto;
+  filter: invert(1);
+  mix-blend-mode: screen;
+  object-fit: contain;
+}
+
+.footer-logo-img {
+  height: 30px;
+}
+
 .social-links {
   display: flex;
   align-items: center;

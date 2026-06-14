@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Award, Compass } from 'lucide-react';
 
+import logoImg from '../assets/logo.jpg';
+
 // Custom inline SVG social icons since brand icons are removed in recent lucide versions
 const TwitterIcon = ({ size = 20 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">
@@ -57,7 +59,7 @@ export default function Header() {
     <header className="header-container">
       <div className="header-wrapper">
         <div className="logo">
-          <Award className="logo-icon" size={28} />
+          <img src={logoImg} alt="Umoja Talanta Logo" className="logo-img" />
           <span className="logo-text">KWA MA BEAST BATTLE</span>
         </div>
 
