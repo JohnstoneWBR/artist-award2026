@@ -60,7 +60,7 @@ export default function Header() {
       <div className="header-wrapper">
         <div className="logo">
           <img src={logoImg} alt="Umoja Talanta Logo" className="logo-img" />
-          <span className="logo-text">KWA MA BEAST BATTLE</span>
+          <span className="logo-text">Kwa Ma Beast Battle</span>
         </div>
 
         <div className="countdown-box">

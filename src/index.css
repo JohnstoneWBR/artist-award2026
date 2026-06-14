@@ -3,7 +3,7 @@
    DESIGN SYSTEM - VANILLA CSS (COMPACT EDITION)
    ========================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700;800;900&display=swap');
 
 :root {
   /* Color Palette */
@@ -34,6 +34,7 @@
   /* Fonts */
   --font-display: 'Montserrat', sans-serif;
   --font-sans: 'Inter', sans-serif;
+  --font-thunder: 'Bungee', 'Impact', sans-serif;
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -175,14 +176,15 @@ a {
 }
 
 .logo-text {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.25rem;
-  letter-spacing: -0.5px;
+  font-family: var(--font-thunder);
+  font-weight: 400;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-transform: uppercase;
+  background-clip: text;
+  text-shadow: 0 0 20px rgba(223, 167, 37, 0.15);
 }
 
 .logo-icon {
@@ -251,12 +253,12 @@ a {
 }
 
 .hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 4vw, 2.8rem); /* Smaller header */
-  font-weight: 900;
-  line-height: 1.15;
+  font-family: var(--font-thunder);
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1.2;
   margin-bottom: 0.75rem;
-  letter-spacing: -0.5px;
+  letter-spacing: 1px;
 }
 
 .hero-title span {

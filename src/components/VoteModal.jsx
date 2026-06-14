@@ -267,9 +267,9 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
               <div className="mpesa-phone-mock">
                 <div className="mpesa-push-dialog">
                   <div className="mpesa-logo-micro">M-PESA</div>
-                  <div className="mpesa-push-title">Pay KWA MA BEAST BATTLE?</div>
+                  <div className="mpesa-push-title">Pay Kwa Ma Beast Battle?</div>
                   <div className="mpesa-push-body">
-                    Do you want to pay KES {amount}.00 to KWA MA BEAST BATTLE?
+                    Do you want to pay KES {amount}.00 to Kwa Ma Beast Battle?
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <div className="mpesa-pin-inputs">

@@ -14,8 +14,8 @@ export default function Hero({ stats = { totalVotes: 0, totalTipped: 0, nomineeC
         June 28, 2026
       </div>
       <h1 className="hero-title">
-        KWA MA BEAST<br />
-        <span>BATTLE</span>
+        Kwa Ma Beast<br />
+        <span>Battle</span>
       </h1>
       <p className="hero-desc">
         Celebrate and empower Kenya's creative geniuses. Support your favorite musicians, DJs, producers, and creators through tipped votes. Every <strong>50 KES</strong> tipped awards <strong>1 Vote</strong> directly to the artist.

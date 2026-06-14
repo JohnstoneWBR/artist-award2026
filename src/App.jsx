@@ -282,15 +282,15 @@ export default function App() {
           <div className="footer-brand">
             <div className="logo">
               <img src={logoImg} alt="Umoja Talanta Logo" className="logo-img footer-logo-img" />
-              <span className="logo-text">KWA MA BEAST BATTLE</span>
+              <span className="logo-text">Kwa Ma Beast Battle</span>
             </div>
             <p className="footer-desc">
-              KWA MA BEAST BATTLE. Empowering creators and celebrating our cultural pioneers.
+              Kwa Ma Beast Battle. Empowering creators and celebrating our cultural pioneers.
             </p>
           </div>
 
           <div className="footer-meta">
-            &copy; 2026 KWA MA BEAST BATTLE. All Rights Reserved.
+            &copy; 2026 Kwa Ma Beast Battle. All Rights Reserved.
           </div>
         </div>
       </footer>
@@ -321,7 +321,7 @@ export default function App() {
         <div className="sms-body">
           {activeSMS && (
             <>
-              <strong>{activeSMS.txId}</strong> Confirmed. Ksh<strong>{activeSMS.amount}.00</strong> sent to <strong>KWA MA BEAST BATTLE</strong> for <strong>{activeSMS.nomineeName}</strong>. New M-PESA balance is KSh <strong>{activeSMS.balance}</strong>. Transaction cost KSh 0.00.
+              <strong>{activeSMS.txId}</strong> Confirmed. Ksh<strong>{activeSMS.amount}.00</strong> sent to <strong>Kwa Ma Beast Battle</strong> for <strong>{activeSMS.nomineeName}</strong>. New M-PESA balance is KSh <strong>{activeSMS.balance}</strong>. Transaction cost KSh 0.00.
             </>
           )}
         </div>
