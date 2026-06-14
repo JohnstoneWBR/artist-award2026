@@ -58,7 +58,7 @@ export default function Header() {
       <div className="header-wrapper">
         <div className="logo">
           <Award className="logo-icon" size={28} />
-          <span className="logo-text">KAVA 2026</span>
+          <span className="logo-text">KWA MA BEAST BATTLE</span>
         </div>
 
         <div className="countdown-box">

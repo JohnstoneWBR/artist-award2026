@@ -281,15 +281,15 @@ export default function App() {
           <div className="footer-brand">
             <div className="logo">
               <Award className="logo-icon" size={24} />
-              <span className="logo-text">KAVA 2026</span>
+              <span className="logo-text">KWA MA BEAST BATTLE</span>
             </div>
             <p className="footer-desc">
-              Kenyan Artists Voting Awards. Empowering creators and celebrating our cultural pioneers.
+              KWA MA BEAST BATTLE. Empowering creators and celebrating our cultural pioneers.
             </p>
           </div>
 
           <div className="footer-meta">
-            &copy; 2026 Kenyan Artists Awards Committee. All Rights Reserved.
+            &copy; 2026 KWA MA BEAST BATTLE. All Rights Reserved.
           </div>
         </div>
       </footer>
@@ -320,7 +320,7 @@ export default function App() {
         <div className="sms-body">
           {activeSMS && (
             <>
-              <strong>{activeSMS.txId}</strong> Confirmed. Ksh<strong>{activeSMS.amount}.00</strong> sent to <strong>KAVA 2026</strong> for <strong>{activeSMS.nomineeName}</strong>. New M-PESA balance is KSh <strong>{activeSMS.balance}</strong>. Transaction cost KSh 0.00.
+              <strong>{activeSMS.txId}</strong> Confirmed. Ksh<strong>{activeSMS.amount}.00</strong> sent to <strong>KWA MA BEAST BATTLE</strong> for <strong>{activeSMS.nomineeName}</strong>. New M-PESA balance is KSh <strong>{activeSMS.balance}</strong>. Transaction cost KSh 0.00.
             </>
           )}
         </div>
