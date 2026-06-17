@@ -121,11 +121,11 @@ const SEED_NOMINEES = [
     "amountTipped": 27000
   },
   {
-    "id": "xbusy-kateya",
-    "name": "Xbusy Kateya",
+    "id": "xbizi",
+    "name": "Xbizi",
     "categoryId": "cypher",
     "bio": "Talented cypher lyricist and musician bringing fresh flows and energetic rhythm.",
-    "image": "/xbusy.png",
+    "image": "/xbizi.png",
     "voteCount": 0,
     "amountTipped": 0
   },
