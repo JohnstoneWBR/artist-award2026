@@ -5,13 +5,11 @@ export default function CategoryTabs({ categories = [], selectedCategory, onSele
   
   const getIcon = (id) => {
     switch (id) {
-      case 'musicians':
+      case 'cypher':
         return <Music className="tab-icon" />;
       case 'djs':
         return <Radio className="tab-icon" />;
-      case 'producers':
-        return <Hammer className="tab-icon" />;
-      case 'rising-stars':
+      case 'dance':
         return <Sparkles className="tab-icon" />;
       default:
         return <LayoutGrid className="tab-icon" />;

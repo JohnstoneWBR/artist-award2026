@@ -26,3 +26,6 @@ dist-ssr
 # Deployment cache
 .gh-pages-cache
 
+# Environment variables
+.env
+.env.*

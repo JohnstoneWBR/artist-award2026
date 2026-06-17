@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, CheckCircle2, ShieldCheck, Loader2 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { processLocalVote } from '../utils/mockBackend';
@@ -11,7 +11,7 @@ const getApiUrl = (path) => {
 
 export default function VoteModal({ nominee, categoryName, onClose, onVoteSuccess }) {
   const [step, setStep] = useState(1); // 1: Form, 2: Simulated STK, 3: Success
-  const [amount, setAmount] = useState('250');
+  const [amount, setAmount] = useState('50');
   const [voterName, setVoterName] = useState('');
   const [phone, setPhone] = useState('');
   
@@ -23,6 +23,7 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
 
   // M-Pesa PIN dot simulation animation
   const [pinDots, setPinDots] = useState(0);
+  const pollIntervalRef = useRef(null);
 
   useEffect(() => {
     let pinInterval;
@@ -42,6 +43,15 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
     return () => clearInterval(pinInterval);
   }, [step]);
 
+  // Cleanup polling on unmount
+  useEffect(() => {
+    return () => {
+      if (pollIntervalRef.current) {
+        clearInterval(pollIntervalRef.current);
+      }
+    };
+  }, []);
+
   const handlePresetClick = (val) => {
     setAmount(val.toString());
     setAmountError('');
@@ -50,8 +60,8 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
   const handleAmountChange = (e) => {
     const val = e.target.value;
     setAmount(val);
-    if (parseInt(val, 10) < 50) {
-      setAmountError('Minimum tip amount is 50 KES.');
+    if (parseInt(val, 10) < 10) {
+      setAmountError('Minimum tip amount is 10 KES.');
     } else {
       setAmountError('');
     }
@@ -73,8 +83,8 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
 
   const calculateVotes = () => {
     const amt = parseInt(amount, 10);
-    if (isNaN(amt) || amt < 50) return 0;
-    return Math.floor(amt / 50);
+    if (isNaN(amt) || amt < 10) return 0;
+    return Math.floor(amt / 10);
   };
 
   const handleSubmit = async (e) => {
@@ -82,8 +92,8 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
     
     // Validate amount
     const amt = parseInt(amount, 10);
-    if (isNaN(amt) || amt < 50) {
-      setAmountError('Minimum tip amount is 50 KES (1 vote).');
+    if (isNaN(amt) || amt < 10) {
+      setAmountError('Minimum tip amount is 10 KES (1 vote).');
       return;
     }
 
@@ -98,7 +108,7 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
     }
 
     setIsSubmitting(true);
-    setStep(2); // Move to STK push simulation
+    setStep(2); // Move to STK push simulation / wait screen
 
     try {
       const response = await fetch(getApiUrl('/api/vote'), {
@@ -116,22 +126,67 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
 
       const data = await response.json();
 
-      if (response.ok && data.success) {
-        setTxReceipt(data.transaction);
-        setStep(3); // Move to success step
-        
-        // Trigger confetti celebration!
-        confetti({
-          particleCount: 120,
-          spread: 80,
-          origin: { y: 0.55 },
-          colors: ['#dfa725', '#f7e590', '#39b54a', '#ffffff']
-        });
+      if (response.ok && data.success && data.invoiceId) {
+        const invoiceId = data.invoiceId;
+        let attempts = 0;
+        const maxAttempts = 30; // 60 seconds total
 
-        // Notify parent to update core nominees state
-        onVoteSuccess(data.nominees, data.stats, data.transaction);
+        pollIntervalRef.current = setInterval(async () => {
+          attempts++;
+          if (attempts > maxAttempts) {
+            clearInterval(pollIntervalRef.current);
+            pollIntervalRef.current = null;
+            setIsSubmitting(false);
+            alert('M-Pesa authorization timed out. If you entered your PIN, please check the dashboard shortly.');
+            setStep(1);
+            return;
+          }
+
+          try {
+            const statusRes = await fetch(getApiUrl(`/api/vote/status/${invoiceId}`));
+            const statusData = await statusRes.json();
+
+            if (statusRes.ok && statusData.success) {
+              if (statusData.status === 'COMPLETE') {
+                clearInterval(pollIntervalRef.current);
+                pollIntervalRef.current = null;
+                setIsSubmitting(false);
+                setTxReceipt(statusData.transaction);
+                setStep(3); // Move to success step
+                
+                // Trigger confetti celebration!
+                confetti({
+                  particleCount: 120,
+                  spread: 80,
+                  origin: { y: 0.55 },
+                  colors: ['#dfa725', '#f7e590', '#39b54a', '#ffffff']
+                });
+
+                // Notify parent to update core nominees state
+                onVoteSuccess(statusData.nominees, statusData.stats, statusData.transaction);
+              } else if (statusData.status === 'FAILED' || statusData.status === 'CANCELED') {
+                clearInterval(pollIntervalRef.current);
+                pollIntervalRef.current = null;
+                setIsSubmitting(false);
+                alert(statusData.error || 'M-Pesa payment failed or was canceled.');
+                setStep(1);
+              }
+              // If PENDING or PROCESSING, continue polling
+            } else {
+              clearInterval(pollIntervalRef.current);
+              pollIntervalRef.current = null;
+              setIsSubmitting(false);
+              alert(statusData.error || 'Error verifying payment status.');
+              setStep(1);
+            }
+          } catch (pollErr) {
+            console.error('Polling status error:', pollErr);
+          }
+        }, 2000);
+
       } else {
-        alert(data.error || 'Voting failed. Please try again.');
+        alert(data.error || 'Voting failed to initiate. Please try again.');
+        setIsSubmitting(false);
         setStep(1);
       }
     } catch (err) {
@@ -155,10 +210,10 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
           console.error(localErr);
           alert('Local vote processing failed.');
           setStep(1);
+        } finally {
+          setIsSubmitting(false);
         }
       }, 1500);
-    } finally {
-      setIsSubmitting(false);
     }
   };
 
@@ -193,7 +248,7 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
               <div className="form-group">
                 <label className="form-label">Select Tip Amount (KES)</label>
                 <div className="preset-grid">
-                  {[50, 250, 500, 1000].map((val) => (
+                  {[10, 50, 250, 500].map((val) => (
                     <button
                       key={val}
                       type="button"
@@ -212,7 +267,7 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
                     className="form-input"
                     value={amount}
                     onChange={handleAmountChange}
-                    min="50"
+                    min="10"
                     placeholder="Enter custom amount"
                     required
                   />
@@ -250,7 +305,7 @@ export default function VoteModal({ nominee, categoryName, onClose, onVoteSucces
                 <div className="vote-calc">
                   {calculateVotes()} <span>{calculateVotes() === 1 ? 'Vote' : 'Votes'}</span>
                 </div>
-                <div className="vote-rate">Calculated at 50 KES = 1 Vote</div>
+                <div className="vote-rate">Calculated at 10 KES = 1 Vote</div>
               </div>
 
               <button type="submit" className="mpesa-pay-btn">

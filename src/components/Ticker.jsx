@@ -7,7 +7,7 @@ export default function Ticker({ transactions = [] }) {
       <div className="ticker-wrap">
         <div className="ticker-title">LIVE VOTE TICKER</div>
         <div className="ticker">
-          <div className="ticker-item">Be the first to vote for your favorite artist! 50 KES = 1 Vote.</div>
+          <div className="ticker-item">Be the first to vote for your favorite artist! 10 KES = 1 Vote.</div>
         </div>
       </div>
     );

@@ -4,24 +4,19 @@
 
 const SEED_CATEGORIES = [
   {
-    "id": "musicians",
-    "name": "Musicians",
-    "description": "Best vocalists, rappers, and bands shaping the Kenyan sound."
+    "id": "cypher",
+    "name": "Cypher",
+    "description": "Top lyrical heavyweights, rappers, and vocalists battling for the crown."
   },
   {
     "id": "djs",
-    "name": "DJs & Deck Masters",
-    "description": "Top deck masters keeping the country entertained."
+    "name": "DJs",
+    "description": "Top deck masters keeping the crowd electrified."
   },
   {
-    "id": "producers",
-    "name": "Producers",
-    "description": "Creative minds behind the hit beats and tracks."
-  },
-  {
-    "id": "rising-stars",
-    "name": "Rising Stars / Creators",
-    "description": "New breakout talents and digital content creators."
+    "id": "dance",
+    "name": "Dance",
+    "description": "Dynamic dancers and performers lighting up the stage."
   }
 ];
 
@@ -29,7 +24,7 @@ const SEED_NOMINEES = [
   {
     "id": "sauti-sol",
     "name": "Sauti Sol",
-    "categoryId": "musicians",
+    "categoryId": "cypher",
     "bio": "Grammy-certified Afro-pop band known for their rich harmonies and global influence.",
     "image": "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=500&q=80",
     "voteCount": 1425,
@@ -38,7 +33,7 @@ const SEED_NOMINEES = [
   {
     "id": "khaligraph",
     "name": "Khaligraph Jones",
-    "categoryId": "musicians",
+    "categoryId": "cypher",
     "bio": "The OG. Leading hip-hop powerhouse known for fast flows and lyrical mastery.",
     "image": "https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?auto=format&fit=crop&w=500&q=80",
     "voteCount": 1105,
@@ -47,7 +42,7 @@ const SEED_NOMINEES = [
   {
     "id": "nyashinski",
     "name": "Nyashinski",
-    "categoryId": "musicians",
+    "categoryId": "cypher",
     "bio": "Multi-talented singer-songwriter whose comeback redefined Kenyan music.",
     "image": "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?auto=format&fit=crop&w=500&q=80",
     "voteCount": 980,
@@ -56,7 +51,7 @@ const SEED_NOMINEES = [
   {
     "id": "nadia-mukami",
     "name": "Nadia Mukami",
-    "categoryId": "musicians",
+    "categoryId": "cypher",
     "bio": "African Pop Star award winner, known for her powerful vocals and hits.",
     "image": "https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?auto=format&fit=crop&w=500&q=80",
     "voteCount": 850,
@@ -101,7 +96,7 @@ const SEED_NOMINEES = [
   {
     "id": "motif-di-don",
     "name": "Motif Di Don",
-    "categoryId": "producers",
+    "categoryId": "cypher",
     "bio": "Master beatmaker and executive producer behind major hip-hop and gengetone hits.",
     "image": "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=500&q=80",
     "voteCount": 750,
@@ -110,7 +105,7 @@ const SEED_NOMINEES = [
   {
     "id": "cedo",
     "name": "Cedric Kadenyi (Cedo)",
-    "categoryId": "producers",
+    "categoryId": "cypher",
     "bio": "Award-winning sound designer and composer, key architect of the Sauti Sol sound.",
     "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=500&q=80",
     "voteCount": 680,
@@ -119,16 +114,25 @@ const SEED_NOMINEES = [
   {
     "id": "magix-enga",
     "name": "Magix Enga",
-    "categoryId": "producers",
+    "categoryId": "cypher",
     "bio": "Self-proclaimed 'Beat King', known for high-octane rhythms and gengetone anthems.",
     "image": "https://images.unsplash.com/photo-1487180142328-0c4e37023af5?auto=format&fit=crop&w=500&q=80",
     "voteCount": 540,
     "amountTipped": 27000
   },
   {
+    "id": "xbusy-kateya",
+    "name": "Xbusy Kateya",
+    "categoryId": "cypher",
+    "bio": "Talented cypher lyricist and musician bringing fresh flows and energetic rhythm.",
+    "image": "/xbusy.png",
+    "voteCount": 0,
+    "amountTipped": 0
+  },
+  {
     "id": "crazy-kennar",
     "name": "Crazy Kennar",
-    "categoryId": "rising-stars",
+    "categoryId": "dance",
     "bio": "Renowned comedy content creator bringing humor and storytelling to millions.",
     "image": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=500&q=80",
     "voteCount": 1650,
@@ -137,7 +141,7 @@ const SEED_NOMINEES = [
   {
     "id": "azziad",
     "name": "Azziad Nasenya",
-    "categoryId": "rising-stars",
+    "categoryId": "dance",
     "bio": "The TikTok sensation whose dance videos went viral worldwide, now a top media host.",
     "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80",
     "voteCount": 1580,
@@ -146,7 +150,7 @@ const SEED_NOMINEES = [
   {
     "id": "elsa-majimbo",
     "name": "Elsa Majimbo",
-    "categoryId": "rising-stars",
+    "categoryId": "dance",
     "bio": "Sarcastic comedy creator who achieved massive global recognition during lockdowns.",
     "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=500&q=80",
     "voteCount": 1120,
@@ -227,7 +231,7 @@ export function processLocalVote(nomineeId, amount, voterName, phoneNumber) {
   }
 
   const tipAmount = parseInt(amount, 10);
-  const votesEarned = Math.floor(tipAmount / 50);
+  const votesEarned = Math.floor(tipAmount / 10);
 
   const nominee = nominees[nomineeIndex];
   nominee.voteCount = (nominee.voteCount || 0) + votesEarned;

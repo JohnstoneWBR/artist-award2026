@@ -272,7 +272,7 @@ export default function App() {
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', padding: '1rem', background: 'rgba(255, 255, 255, 0.02)', borderTop: '1px solid var(--border-color)' }}>
         <Info size={14} style={{ color: 'var(--gold-primary)' }} />
         <span style={{ fontSize: '0.8rem', color: 'var(--text-secondary)' }}>
-          Tip safely via M-Pesa. Standard operator charges apply. 50 KES = 1 Vote.
+          Tip safely via M-Pesa. Standard operator charges apply. 10 KES = 1 Vote.
         </span>
       </div>
 
