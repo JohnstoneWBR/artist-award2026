@@ -125,7 +125,7 @@ const SEED_NOMINEES = [
     "name": "Xbizi",
     "categoryId": "cypher",
     "bio": "Talented cypher lyricist and musician bringing fresh flows and energetic rhythm.",
-    "image": "/xbizi.png",
+    "image": "xbizi.png",
     "voteCount": 0,
     "amountTipped": 0
   },
@@ -196,6 +196,7 @@ export function initLocalStorage() {
   const storedCategories = localStorage.getItem('kava_categories');
   
   const needsReset = !storedNominees || !storedCategories || 
+                     storedNominees.includes('/xbizi.png') ||
                      !storedNominees.includes('xbizi') ||
                      JSON.parse(storedCategories).length !== SEED_CATEGORIES.length;
 
