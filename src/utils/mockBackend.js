@@ -192,7 +192,14 @@ const SEED_TRANSACTIONS = [
 ];
 
 export function initLocalStorage() {
-  if (!localStorage.getItem('kava_nominees')) {
+  const storedNominees = localStorage.getItem('kava_nominees');
+  const storedCategories = localStorage.getItem('kava_categories');
+  
+  const needsReset = !storedNominees || !storedCategories || 
+                     !storedNominees.includes('xbizi') ||
+                     JSON.parse(storedCategories).length !== SEED_CATEGORIES.length;
+
+  if (needsReset) {
     localStorage.setItem('kava_categories', JSON.stringify(SEED_CATEGORIES));
     localStorage.setItem('kava_nominees', JSON.stringify(SEED_NOMINEES));
     localStorage.setItem('kava_transactions', JSON.stringify(SEED_TRANSACTIONS));
